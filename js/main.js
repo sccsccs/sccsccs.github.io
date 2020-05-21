@@ -15,9 +15,9 @@ limitations under the License.
 
 var videoElement = document.querySelector('video');
 var videoSelect = document.querySelector('select#videoSource');
-const screenshotButton = document.querySelector('#screenshot-button');
-const img = document.querySelector('#screenshotImage');
-const canvas = document.createElement('canvas');
+var screenshotButton = document.querySelector('#screenshot-button');
+var img = document.querySelector('#screenshotImage');
+var canvas = document.createElement('canvas');
 
 videoSelect.onchange = getStream;
 
