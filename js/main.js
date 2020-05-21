@@ -80,13 +80,12 @@ function clearphoto() {
 // other changes before drawing it.
 function takeScreenShot() {
     var context = canvas.getContext('2d');
-    if (width && height) {
-      canvas.width = width;
-      canvas.height = height;
-      context.drawImage(videoElement, 0, 0, width, height);
-
-      var data = canvas.toDataURL('image/png');
-      photo.setAttribute('src', data);
+    canvas.width = videoElement.videoWidth;
+    canvas.height = videoElement.videoHeight;
+    context.drawImage(videoElement, 0, 0);
+    
+    var data = canvas.toDataURL('image/png');
+    photo.setAttribute('src', data);
     } else {
       clearphoto();
     }
