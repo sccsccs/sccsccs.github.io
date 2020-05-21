@@ -89,9 +89,6 @@ function takeScreenShot() {
   data = canvas.toDataURL('image/jpeg');
   photo.setAttribute('src', data);
   console.log('done screenshot...');
-  if (data != null) {
-    console.log(data);
-  }
 }
 
 function sendPicture() {
