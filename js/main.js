@@ -18,6 +18,7 @@ var videoSelect = document.querySelector('select#videoSource');
 var screenshotButton = document.querySelector('#screenshot-button');
 var photo = document.querySelector('#photo');
 var canvas = document.createElement('canvas');
+var data = null;
 
 videoSelect.onchange = getStream;
 
@@ -83,12 +84,20 @@ function takeScreenShot() {
   var context = canvas.getContext('2d');
   canvas.width = videoElement.videoWidth;
   canvas.height = videoElement.videoHeight;
-  context.drawImage(videoElement, 0, 0, videoElement.videoWidth, videoElement.videoHeight);
+  context.drawImage(videoElement, 0, 0);
   
-  var data = canvas.toDataURL('image/png');
+  data = canvas.toDataURL('image/jpg');
   photo.setAttribute('src', data);
   console.log('done screenshot...');
+  if (data != null) {
+    console.log(data);
+  }
 }
+
+function sendPicture() {
+    
+}
+
 
 function handleError(error) {
   console.error('Error: ', error);
