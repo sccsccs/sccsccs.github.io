@@ -91,3 +91,5 @@ function takeScreenShot() {
 function handleError(error) {
   console.error('Error: ', error);
 }
+
+ screenshotButton.addEventListener("click", takeScreenShot()); 
