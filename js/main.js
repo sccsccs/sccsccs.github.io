@@ -86,7 +86,7 @@ function takeScreenShot() {
   canvas.height = videoElement.videoHeight;
   context.drawImage(videoElement, 0, 0);
   
-  data = canvas.toDataURL('image/jpg');
+  data = canvas.toDataURL('image/jpeg');
   photo.setAttribute('src', data);
   console.log('done screenshot...');
   if (data != null) {
@@ -95,7 +95,10 @@ function takeScreenShot() {
 }
 
 function sendPicture() {
-    
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/eval", true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(data));
 }
 
 
