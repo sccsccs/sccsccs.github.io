@@ -65,13 +65,13 @@ function gotStream(stream) {
 // Fill the photo with an indication that none has been
 // captured.
 function clearphoto() {
-    var context = canvas.getContext('2d');
-    context.fillStyle = "#AAA";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+  var context = canvas.getContext('2d');
+  context.fillStyle = "#AAA";
+  context.fillRect(0, 0, canvas.width, canvas.height);
 
-    var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
-  }
+  var data = canvas.toDataURL('image/png');
+  photo.setAttribute('src', data);
+}
   
 // Capture a photo by fetching the current contents of the video
 // and drawing it into a canvas, then converting that to a PNG
@@ -79,13 +79,13 @@ function clearphoto() {
 // drawing that to the screen, we can change its size and/or apply
 // other changes before drawing it.
 function takeScreenShot() {
-    var context = canvas.getContext('2d');
-    canvas.width = videoElement.videoWidth;
-    canvas.height = videoElement.videoHeight;
-    context.drawImage(videoElement, 0, 0, videoElement.videoWidth, videoElement.videoHeight);
-    
-    var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
+  var context = canvas.getContext('2d');
+  canvas.width = videoElement.videoWidth;
+  canvas.height = videoElement.videoHeight;
+  context.drawImage(videoElement, 0, 0, videoElement.videoWidth, videoElement.videoHeight);
+  
+  var data = canvas.toDataURL('image/png');
+  photo.setAttribute('src', data);
 }
 
 function handleError(error) {
