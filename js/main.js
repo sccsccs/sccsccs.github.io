@@ -62,7 +62,7 @@ function gotStream(stream) {
   videoElement.srcObject = stream;
 }
 
-screenshotButton.onclick = video.onclick = function() {
+screenshotButton.onclick = function() {
   canvas.width = videoElement.videoWidth;
   canvas.height = videoElement.videoHeight;
   canvas.getContext('2d').drawImage(videoElement, 0, 0);
