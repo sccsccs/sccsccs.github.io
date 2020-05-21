@@ -89,7 +89,6 @@ function takeScreenShot() {
   photo.setAttribute('src', data);
   console.log('done screenshot...');
 }
-screenshotButton.addEventListener("click", takeScreenShot()); 
 
 function handleError(error) {
   console.error('Error: ', error);
