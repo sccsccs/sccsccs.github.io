@@ -79,6 +79,7 @@ function clearphoto() {
 // drawing that to the screen, we can change its size and/or apply
 // other changes before drawing it.
 function takeScreenShot() {
+  console.log('taking screenshot...');
   var context = canvas.getContext('2d');
   canvas.width = videoElement.videoWidth;
   canvas.height = videoElement.videoHeight;
@@ -86,10 +87,11 @@ function takeScreenShot() {
   
   var data = canvas.toDataURL('image/png');
   photo.setAttribute('src', data);
+  console.log('done screenshot...');
 }
+screenshotButton.addEventListener("click", takeScreenShot()); 
 
 function handleError(error) {
   console.error('Error: ', error);
 }
 
- screenshotButton.addEventListener("click", takeScreenShot()); 
