@@ -68,7 +68,7 @@ function takeScreenShot() {
   canvas.getContext('2d').drawImage(videoElement, 0, 0);
   // Other browsers will fall back to image/png
   img.src = canvas.toDataURL('image/webp');
-};
+}
 
 function handleError(error) {
   console.error('Error: ', error);
