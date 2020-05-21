@@ -16,7 +16,7 @@ limitations under the License.
 var videoElement = document.querySelector('video');
 var videoSelect = document.querySelector('select#videoSource');
 var screenshotButton = document.querySelector('#screenshot-button');
-var img = document.querySelector('#screenshotImage');
+var photo = document.querySelector('#photo');
 var canvas = document.createElement('canvas');
 
 videoSelect.onchange = getStream;
@@ -62,12 +62,34 @@ function gotStream(stream) {
   videoElement.srcObject = stream;
 }
 
+// Fill the photo with an indication that none has been
+// captured.
+function clearphoto() {
+    var context = canvas.getContext('2d');
+    context.fillStyle = "#AAA";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    var data = canvas.toDataURL('image/png');
+    photo.setAttribute('src', data);
+  }
+  
+// Capture a photo by fetching the current contents of the video
+// and drawing it into a canvas, then converting that to a PNG
+// format data URL. By drawing it on an offscreen canvas and then
+// drawing that to the screen, we can change its size and/or apply
+// other changes before drawing it.
 function takeScreenShot() {
-  canvas.width = videoElement.videoWidth;
-  canvas.height = videoElement.videoHeight;
-  canvas.getContext('2d').drawImage(videoElement, 0, 0);
-  // Other browsers will fall back to image/png
-  img.src = canvas.toDataURL('image/webp');
+    var context = canvas.getContext('2d');
+    if (width && height) {
+      canvas.width = width;
+      canvas.height = height;
+      context.drawImage(videoElement, 0, 0, width, height);
+
+      var data = canvas.toDataURL('image/png');
+      photo.setAttribute('src', data);
+    } else {
+      clearphoto();
+    }
 }
 
 function handleError(error) {
