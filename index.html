@@ -24,7 +24,7 @@
 <body>
   <div class="container">  
     <h1>Web Camera Test</h1>
-    <p>v1.0.0</p>
+    <p>v1.1.0</p>
     <div class="select">
       <label for="videoSource">Video source:  </label><select id="videoSource"></select>
     </div>
@@ -34,11 +34,11 @@
     </div>  
     
     <div style="text-align:center;">
-      <p><button id="screenshot-button" onclick="takeScreenShot()">Take screenshot</button></p>
+      <p><button id="screenshot-button" onclick="takeScreenShot()">Take Photo</button></p>
     </div>
     
     <div style="text-align:center;">
-      <img id="screenshotImage" src="">
+      <img id="photo" alt="The screen capture will appear in this box.">
       <canvas style="display:none;"></canvas>
       <script async src="js/main.js"></script>
     </div>
